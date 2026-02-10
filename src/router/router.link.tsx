@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import Dashboard from "../feature-module/dashboard/Dashboard";
-import Login from "../feature-module/login/Login";
 import UnderConstruction from "../components/UnderConstruction";
 import { all_routes } from "./all_routes";
+import Login from "../feature-module/login/login";
+import Dashboard from "../feature-module/dashboard/dashboard";
 
 export interface RouteItem {
   path: string;

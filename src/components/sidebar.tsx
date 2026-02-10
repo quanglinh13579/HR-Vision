@@ -59,12 +59,7 @@ export default function Sidebar() {
           </div>
           <span className="text-lg font-bold text-gray-900">HR Vision</span>
         </div>
-        <button onClick={() => setCompanyMenuOpen(!companyMenuOpen)} className="w-[216px] h-[56px] flex items-center justify-between px-[14px] py-[12px] mx-[24px] my-[14px]
-  rounded-[10px]
-  bg-gray-50
-  text-gray-900
-  transition
-">
+        <button onClick={() => setCompanyMenuOpen(!companyMenuOpen)} className="w-[216px] h-[56px] flex items-center justify-between px-[14px] py-[12px] mx-[24px] my-[14px] rounded-[10px] bg-gray-50 text-gray-900 transition">
           <span className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gray-900 rounded-md flex items-center justify-center text-white text-sm font-medium">L</div>
             <span className="text-sm font-medium text-gray-700">Lead Inc.</span>
