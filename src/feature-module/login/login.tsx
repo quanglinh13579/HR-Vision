@@ -6,6 +6,7 @@ import { loginFailure, loginStart, loginSuccess } from "../auth/authSlice";
 import { loginApi } from "../../core/api/authApi";
 import logo from "./image/logo.png";
 import logo2 from "./image/hr-logo.png";
+import "./login.css";
 
 export default function Login() {
 	const dispatch = useAppDispatch();
@@ -36,54 +37,46 @@ export default function Login() {
 	};
 
 	return (
-		<div className="min-h-screen flex">
+		<div className="login-container">
 			<div
-				className="hidden lg:flex lg:w-1/2 relative bg-cover bg-center flex-col justify-between pt-[80px] pl-[75px] pb-12 pr-12 text-white"
+				className="login-left"
 				style={{
 					backgroundImage: `url(${logo})`,
 				}}
 			>
-				<div className="absolute inset-0 bg-black/30"></div>
-				<div className="relative z-10 flex items-center gap-2">
-					<div className="flex items-center justify-center w-12 h-8 rounded-full border-2 border-white">
+				<div className="login-brand">
+					<div className="brand-icon-wrapper">
 						<img
 							src={logo2}
 							alt="HR Vision"
-							className="w-6 h-6 object-contain"
+							className="brand-logo"
 						/>
 					</div>
-					<span className="text-[28px] font-bold text-white">
+					<span className="brand-text">
 						HR Vision
 					</span>
 				</div>
-				<div className="relative z-10 text-center">
-					<h2 className="text-[32px] font-bold text-center">
-						<span className="block">Manage your people efficiently</span>
-						<span className="block">All-in-one HR Dashboard</span>
+				<div className="login-hero-text">
+					<h2 className="hero-title">
+						<span>Manage your people efficiently <br/> All-in-one HR Dashboard</span>
 					</h2>
 				</div>
 			</div>
-			<div className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 bg-white">
-				<div className="w-full max-w-md space-y-8">
-					<div className="lg:hidden flex items-center gap-2 mb-8">
-						<div className="w-8 h-8 rounded-full border-2 border-gray-800 flex items-center justify-center">
-							<div className="w-4 h-4 rounded-full border border-gray-800"></div>
-						</div>
-						<span className="text-2xl font-bold text-gray-800">HR Vision</span>
-					</div>
-					<div className="space-y-2">
-						<h1 className="text-[40px] font-bold text-gray-900 w-[490px] h-[60px]">
+			<div className="login-right">
+				<div className="login-form-wrapper">
+					<div className="login-header-text">
+						<h1 className="login-title">
 							Welcome Back!
 						</h1>
-						<p className="font-inter text-[18px] font-normal leading-[140%] tracking-[0px] text-gray-600 w-[490px] h-[25px] opacity-100 ">
+						<p className="login-subtitle">
 							Sign in to continue to your HR Dashboard.
 						</p>
 					</div>
-					<form onSubmit={handleSubmit} className="space-y-6">
-						<div className="space-y-2">
+					<form onSubmit={handleSubmit} className="login-form">
+						<div className="form-group">
 							<label
 								htmlFor="email"
-								className="block text-sm font-medium text-gray-700">
+								className="form-label">
 								Email Address
 							</label>
 							<input
@@ -92,59 +85,59 @@ export default function Login() {
 								placeholder="you@company.com"
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
-								className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+								className="form-input"
 								required
 							/>
 						</div>
-						<div className="space-y-2">
+						<div className="form-group">
 							<label
 								htmlFor="password"
-								className="block text-sm font-medium text-gray-700">
+								className="form-label">
 								Password
 							</label>
-							<div className="relative">
+							<div className="password-wrapper">
 								<input
 									id="password"
 									type={showPassword ? "text" : "password"}
 									placeholder="Enter your password"
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
-									className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+									className="form-input"
 									required
 								/>
 								<button
 									type="button"
 									onClick={() => setShowPassword(!showPassword)}
-									className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+									className="password-toggle">
 									{showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
 								</button>
 							</div>
-							<div className="flex justify-end pt-1">
+						</div>
+						<div className="forgot-password-wrapper">
 								<a
 									href="#"
-									className="text-blue-600 hover:text-blue-700 text-sm font-medium">
+									className="forgot-password-link">
 									Forgot Password?
 								</a>
 							</div>
-						</div>
 						{error && (
-							<div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+							<div className="error-message">
 								{error}
 							</div>
 						)}
 						<button
 							type="submit"
 							disabled={loading}
-							className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-200">
+							className="btn-submit">
 							{loading ? "Logging in..." : "Log In"}
 						</button>
 					</form>
-					<div className="pt-4 text-center">
-						<div className="text-gray-600 text-sm">
+					<div className="login-footer">
+						<div className="footer-text">
 							Don't have an account?{" "}
 							<a
 								href="#"
-								className="text-blue-600 hover:text-blue-700 font-medium">
+								className="footer-link">
 								Sign Up
 							</a>
 						</div>
